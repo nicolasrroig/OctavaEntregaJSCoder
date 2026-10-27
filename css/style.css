@@ -1,0 +1,449 @@
+/* =========================================
+   1. CONFIGURACIÓN GENERAL
+========================================= */
+
+:root {
+    --color-fondo: #f4f4f1;
+    --color-tarjeta: #ffffff;
+    --color-principal: #202820;
+    --color-principal-hover: #354335;
+    --color-texto: #222222;
+    --texto-secundario: #6b6b6b;
+    --color-borde: #deded8;
+    --color-error: #b42318;
+    --color-exito: #237a45;
+    --color-alerta: #9a6700;
+
+    --radio-borde: 10px;
+    --sombra: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Elimina márgenes y rellenos predeterminados */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos generales del documento */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Contenedor reutilizable */
+
+.contenedor {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+/* =========================================
+   2. ENCABEZADO
+========================================= */
+
+.encabezado {
+    background-color: var(--color-principal);
+    color: #ffffff;
+    padding: 45px 0;
+    text-align: center;
+}
+
+.marca {
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.encabezado h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: #d7ddd5;
+    font-size: 1rem;
+}
+
+/* =========================================
+   3. SECCIONES PRINCIPALES
+========================================= */
+
+main {
+    padding-top: 35px;
+    padding-bottom: 45px;
+}
+
+.seccion {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--sombra);
+}
+
+.seccion h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.descripcion {
+    color: var(--texto-secundario);
+    margin-bottom: 22px;
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   4. FORMULARIO
+========================================= */
+
+#formulario-producto {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: var(--color-texto);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: 2px solid #7d927d;
+    outline-offset: 1px;
+    border-color: var(--color-principal);
+}
+
+/* El botón principal ocupa las dos columnas del formulario */
+
+#formulario-producto .boton-principal {
+    grid-column: 1 / -1;
+}
+
+/* =========================================
+   5. BOTONES
+========================================= */
+
+.boton {
+    display: inline-block;
+    border: none;
+    border-radius: 6px;
+    padding: 11px 16px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton:hover {
+    transform: translateY(-1px);
+}
+
+.boton:focus-visible {
+    outline: 2px solid #7d927d;
+    outline-offset: 3px;
+}
+
+.boton-principal {
+    background-color: var(--color-principal);
+    color: #ffffff;
+}
+
+.boton-principal:hover {
+    background-color: var(--color-principal-hover);
+}
+
+.boton-eliminar {
+    background-color: #fce8e6;
+    color: var(--color-error);
+}
+
+.boton-eliminar:hover {
+    background-color: #f7d4d1;
+}
+
+.boton-secundario {
+    background-color: #e8e8e3;
+    color: var(--color-texto);
+}
+
+.boton-secundario:hover {
+    background-color: #dcdcd5;
+}
+
+/* =========================================
+   6. MENSAJES
+========================================= */
+
+.mensaje {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.mensaje:empty {
+    display: none;
+}
+
+.mensaje-exito {
+    color: var(--color-exito);
+}
+
+.mensaje-error {
+    color: var(--color-error);
+}
+
+/* =========================================
+   7. TÍTULO DEL CATÁLOGO Y CONTADOR
+========================================= */
+
+.titulo-catalogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.titulo-catalogo .descripcion {
+    margin-bottom: 0;
+}
+
+.contador {
+    background-color: #e8ece5;
+    color: var(--color-principal);
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* =========================================
+   8. BUSCADOR Y ACCIONES DEL CATÁLOGO
+========================================= */
+
+.campo-busqueda {
+    margin-bottom: 18px;
+}
+
+.acciones-catalogo {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 22px;
+}
+
+/* =========================================
+   9. LISTA Y TARJETAS DE PRODUCTOS
+========================================= */
+
+.lista-productos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #ffffff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: 20px;
+    box-shadow: var(--sombra);
+}
+
+.tarjeta h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.categoria-producto {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #edf0e9;
+    color: var(--color-principal);
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.precio-producto {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.stock-producto {
+    margin-bottom: 15px;
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+/* Indicadores de stock */
+
+.stock-disponible {
+    color: var(--color-exito);
+    font-weight: bold;
+}
+
+.stock-agotado {
+    color: var(--color-error);
+    font-weight: bold;
+}
+
+/* =========================================
+   10. CONTROL DE STOCK
+========================================= */
+
+.control-stock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.control-stock label {
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+}
+
+.control-stock input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.control-stock input:focus {
+    outline: 2px solid #7d927d;
+    outline-offset: 1px;
+}
+
+.control-stock .boton-principal {
+    margin-top: 0;
+}
+
+/* Los botones de las tarjetas ocupan el ancho disponible */
+
+.tarjeta > .boton-eliminar {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Separación entre el botón de stock y el de eliminar */
+
+.tarjeta .boton-eliminar + .boton-eliminar {
+    margin-top: 10px;
+}
+
+/* =========================================
+   11. CATÁLOGO VACÍO
+========================================= */
+
+.catalogo-vacio {
+    grid-column: 1 / -1;
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--texto-secundario);
+    background-color: #fafaf8;
+    border: 1px dashed var(--color-borde);
+    border-radius: var(--radio-borde);
+}
+
+/* =========================================
+   12. PIE DE PÁGINA
+========================================= */
+
+.pie-pagina {
+    background-color: var(--color-principal);
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9rem;
+}
+
+.pie-pagina p + p {
+    margin-top: 5px;
+    color: #d7ddd5;
+}
+
+/* =========================================
+   13. DISEÑO RESPONSIVE
+========================================= */
+
+/* Tablets */
+
+@media (max-width: 900px) {
+    .lista-productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 600px) {
+    .encabezado {
+        padding: 35px 0;
+    }
+
+    .seccion {
+        padding: 18px;
+    }
+
+    #formulario-producto {
+        grid-template-columns: 1fr;
+    }
+
+    #formulario-producto .boton-principal {
+        grid-column: auto;
+    }
+
+    .lista-productos {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo-catalogo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .acciones-catalogo {
+        justify-content: stretch;
+    }
+
+    .acciones-catalogo .boton {
+        width: 100%;
+    }
+}

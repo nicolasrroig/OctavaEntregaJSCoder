@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Permite que la página se adapte a celulares, tablets y computadoras -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Essential Men: catálogo de indumentaria y accesorios masculinos."
+    >
+
+    <title>Essential Men | Catálogo</title>
+
+    <!-- Conexión con el archivo CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Conexión con el archivo JavaScript -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Encabezado principal -->
+    <header class="encabezado">
+        <div class="contenedor">
+            <p class="marca">ESSENTIAL MEN</p>
+            <h1>Tu estilo, tus esenciales.</h1>
+            <p class="subtitulo">
+                Indumentaria y accesorios masculinos.
+            </p>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="contenedor">
+
+        <!-- Sección para agregar productos -->
+        <section class="seccion" aria-labelledby="titulo-formulario">
+
+            <h2 id="titulo-formulario">Agregar un producto</h2>
+
+            <p class="descripcion">
+                Completá los datos para incorporar un nuevo producto al catálogo.
+            </p>
+
+            <form id="formulario-producto">
+
+                <!-- Nombre -->
+                <div class="campo">
+                    <label for="nombre">Nombre del producto</label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ej.: Reloj Tressa"
+                        required
+                        maxlength="80"
+                    >
+                </div>
+
+                <!-- Categoría -->
+                <div class="campo">
+                    <label for="categoria">Categoría</label>
+
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Seleccioná una categoría</option>
+                        <option value="Relojes">Relojes</option>
+                        <option value="Gafas">Gafas</option>
+                        <option value="Remeras">Remeras</option>
+                        <option value="Shorts">Shorts</option>
+                    </select>
+                </div>
+
+                <!-- Precio -->
+                <div class="campo">
+                    <label for="precio">Precio ($)</label>
+
+                    <input
+                        type="number"
+                        id="precio"
+                        name="precio"
+                        placeholder="Ej.: 85000"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <!-- Stock -->
+                <div class="campo">
+                    <label for="stock">Cantidad en stock</label>
+
+                    <input
+                        type="number"
+                        id="stock"
+                        name="stock"
+                        placeholder="Ej.: 10"
+                        min="0"
+                        step="1"
+                        required
+                    >
+                </div>
+
+                <!-- Botón para agregar -->
+                <button type="submit" class="boton boton-principal">
+                    Agregar producto
+                </button>
+
+            </form>
+
+            <!-- Mensajes dinámicos de JavaScript -->
+            <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+
+        </section>
+
+        <!-- Sección del catálogo -->
+        <section class="seccion" aria-labelledby="titulo-catalogo">
+
+            <div class="titulo-catalogo">
+                <div>
+                    <h2 id="titulo-catalogo">Nuestro catálogo</h2>
+
+                    <p class="descripcion">
+                        Buscá, administrá y actualizá tus productos.
+                    </p>
+                </div>
+
+                <!-- Contador actualizado desde JavaScript -->
+                <span id="contador" class="contador">
+                    0 productos
+                </span>
+            </div>
+
+            <!-- Buscador -->
+            <div class="campo campo-busqueda">
+                <label for="busqueda">Buscar productos</label>
+
+                <input
+                    type="search"
+                    id="busqueda"
+                    name="busqueda"
+                    placeholder="Buscar por nombre o categoría..."
+                >
+            </div>
+
+            <!-- Botón para vaciar el catálogo -->
+            <div class="acciones-catalogo">
+                <button
+                    type="button"
+                    id="vaciar-catalogo"
+                    class="boton boton-eliminar"
+                >
+                    Vaciar catálogo
+                </button>
+            </div>
+
+            <!-- JavaScript insertará las tarjetas dentro de este contenedor -->
+            <div id="lista-productos" class="lista-productos"></div>
+
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="pie-pagina">
+        <div class="contenedor">
+            <p>Essential Men &copy; 2026</p>
+            <p>Catálogo de indumentaria y accesorios masculinos.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
